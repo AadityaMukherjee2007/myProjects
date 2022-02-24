@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class test1
+public class unlimitedInput_sum
 {	
 	public static void main(String args[])
 	{
