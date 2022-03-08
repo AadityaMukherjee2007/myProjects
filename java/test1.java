@@ -5,15 +5,17 @@ public class test1
 	{
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Enter Number: ");
-		
-		int n = 0;
-		while (sc.hasNextDouble())
+		for (int i = 1; i <= 5; i++)
 		{
-			n += sc.nextDouble();
+			for (int j = 1; j <= (5 - i); j++)
+			{
+				System.out.print(" ");
+			}
+			for (int k = i; k >= 1; k--)
+			{
+				System.out.print(k);
+			}
+			System.out.println();
 		}
-		sc.close();
-		
-		System.out.println("Sum = " + n);
 	}
 }

@@ -1,4 +1,12 @@
-int laser = 4, sensor = 7, alarm = 2;
+int laser = 4, sensor = 7, alarm = 11;
+
+void beep()
+{
+  digitalWrite(alarm, HIGH);
+  delay(150);
+  digitalWrite(alarm, LOW);
+  delay(150);
+}
 
 void setup() {
   pinMode(sensor, INPUT);
@@ -24,7 +32,7 @@ void loop() {
     digitalWrite(13, HIGH);
     for(;;)
     {
-      digitalWrite(alarm, HIGH);
+      beep();
     }
   }
 }
