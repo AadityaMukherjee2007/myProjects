@@ -1,0 +1,77 @@
+#mainHeading
+{
+	padding-top: 150px;
+	margin: 0px;
+	font-size: 100px;
+	color: White;
+}
+
+.intro
+{
+	background-image: url("https://assets.ey.com/content/dam/ey-sites/ey-com/ja_jp/topics/sustainability/image/ey-ccass-the-future-illuminated-by-hydrogen-energy-lights-hero.jpg.rendition.1800.1200.jpg");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 500px;
+	margin: -8px;
+	text-align: center;
+	padding: 0px;
+}
+
+.body
+{
+	text-align: left;
+	font-size: 30px;
+	padding-top: 50px;
+	margin-bottom: 50px;
+}
+
+
+#aboutH
+{
+	text-align: center;
+	padding-left: 80px;
+	padding-right: 100px;
+	padding-bottom: 60px;
+}
+
+#iso_head
+{
+	margin-left: -100px;
+	text-align: center;
+	padding-bottom: 50px;
+}
+
+#hImg
+{
+	float: left;
+	margin-bottom: 100px;
+	margin-left: 50px;
+}
+
+table
+{
+	margin-left: 500px;
+	width: 50%;
+	border-collapse: collapse;
+}
+
+tr:nth-child(even)
+{
+	background-color: #dddddd;
+}
+
+th, td
+{
+	padding-right: 500px;
+	border: 1px solid black;
+	text-align: center;
+	padding-right: 8px;
+	margin-right: 50px;
+}
+
+#th_protium
+{
+	text-align: center;
+	font-size: 30px;
+}

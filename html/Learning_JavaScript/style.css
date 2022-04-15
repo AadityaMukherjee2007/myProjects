@@ -1,0 +1,25 @@
+h1
+{
+	text-align: center;
+}
+
+#calculator
+{
+	margin-left: 40px;
+}
+
+#calc
+{
+	font-size: 30px;
+	
+}
+
+.tArea
+{
+	width: 100px;
+}
+
+#op
+{
+	width: 30px;
+}
