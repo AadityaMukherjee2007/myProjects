@@ -68,6 +68,8 @@ void loop() {
     // Check WiFi connection status
     if(WiFi.status()== WL_CONNECTED){
       String serverPath = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + countryCode + "&APPID=" + openWeatherMapApiKey;
+
+      Serial.println();
       
       jsonBuffer = httpGETRequest(serverPath.c_str());
       Serial.println(jsonBuffer);
@@ -79,8 +81,8 @@ void loop() {
         return;
       }
       double temp = (double)(myObject["main"]["temp"]) - 273.0;
-      Serial.print("JSON object = ");
-      Serial.println(myObject);
+      //Serial.print("JSON object = ");
+      //Serial.println(myObject);
       Serial.print("Temperature: ");
       Serial.println((String)temp + "°C");
       Serial.print("Pressure: ");
