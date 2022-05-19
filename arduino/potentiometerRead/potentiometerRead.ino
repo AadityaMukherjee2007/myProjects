@@ -21,9 +21,9 @@ void setup()
   display.print("Loading");
   for (int i = 1; i <= 3; i++)
   {
+    delay(350);
     display.print(".");
     display.display();
-    delay(350);
   }
   delay(2000);
 }
