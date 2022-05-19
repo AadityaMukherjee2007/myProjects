@@ -40,7 +40,6 @@ void loop()
   Serial.println("%");
 
   display.clearDisplay();
-  display.display();
   display.setTextSize(1);
   display.setTextColor(SSD1306_WHITE);
 
