@@ -31,13 +31,16 @@ void setup()
 void loop()
 { 
   read = analogRead(A0);
+  double val = (read / 1023) * 100;
+  double vol = read * 5 / 1023;
+  
   Serial.print(read);
   Serial.print("\t\t");
-  delay(100);
-
-  double val = (read / 1023) * 100;
   Serial.print(val);
-  Serial.println("%");
+  Serial.print("%");
+  Serial.print("\t\t");
+  Serial.print(vol);
+  Serial.println("v");
 
   display.clearDisplay();
   display.setTextSize(1);
@@ -62,5 +65,11 @@ void loop()
   display.setTextSize(3);
   display.print(val);
   display.write("%");
+
+  display.setCursor(50, 55);
+  display.setTextSize(1);
+  display.print(vol);
+  display.write("v");
+  
   display.display();
 }
