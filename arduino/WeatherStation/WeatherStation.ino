@@ -6,45 +6,44 @@
 DHT dht(2, DHT11);
 Adafruit_SSD1306 display(128, 64, &Wire, -1);
 
-float temp, hmd, heatIndex;
-
-void temperature()
+void Display(float tc, float tf,int h, float hi)
 {
-  temp = dht.readTemperature();
-
   display.clearDisplay();
   display.setTextSize(1);
-  display.setTextColor(SSD1306_WHITE);
-  display.setCursor(30, 5);
+  display.setTextColor(WHITE);
+  
+  display.setCursor(0, 0);
   display.print("Temperature");
-  
-  display.setCursor(20, 25);
-  display.setTextSize(2);
-  display.print(temp);
-  display.drawCircle(85, 25, 2, WHITE);
-  display.setCursor(89, 25);
-  display.write("C");
-  display.display();
-}
-
-void humidity()
-{
-  hmd = dht.readHumidity();
-
-  display.clearDisplay();
-  display.setTextSize(1);
-  display.setTextColor(SSD1306_WHITE);
-  display.setCursor(40, 5);
+  display.setCursor(80, 0);
   display.print("Humidity");
-  
-  display.setCursor(25, 25);
+
+  display.setCursor(10, 22);
+  display.print(tc);
+  display.drawCircle(45, 22, 1, WHITE);
+  display.setCursor(49, 22);
+  display.write("C");
+  display.setCursor(10, 42);
+  display.print(tf);
+  display.drawCircle(45, 42, 1, WHITE);
+  display.setCursor(49, 42);
+  display.write("F");
+
   display.setTextSize(2);
-  display.print(hmd);
+  display.setCursor(85, 15);
+  display.print(h);
   display.write("%");
+
+  display.setTextSize(1);
+  display.setCursor(90, 38);
+  display.print("H.I.");
+  display.setCursor(80, 52);
+  display.print(hi);
+  display.drawCircle(115, 52, 1, WHITE);
+  display.setCursor(119, 52);
+  display.print("C");
+
   display.display();
 }
-
-
 
 void setup()
 {
@@ -56,26 +55,23 @@ void setup()
   }
 
   dht.begin();
-/*
+
   display.clearDisplay();
-  display.display();
   display.setTextSize(2);
   display.setTextColor(SSD1306_WHITE);
-  display.setCursor(5, 25);
-  display.print("Loading");
-  for (int i = 1; i <= 3; i++)
-  {
-    delay(350);
-    display.print(".");
-    display.display();
-  }
-  delay(2000);*/
+  display.setCursor(25, 5);
+  display.print("Weather");
+  display.setCursor(22, 33);
+  display.print("Station");
+  display.display();
+  delay(3000);
 }
 
 void loop()
 {
-  temperature();
-  delay(3000);
-  humidity();
-  delay(3000);
+  float tempC = dht.readTemperature();
+  float tempF = dht.readTemperature(true);
+  int humi = dht.readHumidity();
+  float heatI = dht.computeHeatIndex(tempC, humi, false);
+  Display(tempC, tempF, humi, heatI);
 }
