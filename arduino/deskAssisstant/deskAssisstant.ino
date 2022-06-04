@@ -58,17 +58,37 @@ void loop () {
   display.clearDisplay();
   display.setTextSize(2);
   display.setTextColor(WHITE);
-  display.setCursor(20, 25);
+  display.setCursor(15, 25);
+  if (now.hour() < 10)
+  {
+    display.write("0");
+  }
   display.print(now.hour());
   display.write(":");
+  if (now.minute() < 10)
+  {
+    display.write("0");
+  }
   display.print(now.minute());
   display.write(":");
+  if (now.second() < 10)
+  {
+    display.write("0");
+  }
   display.print(now.second());
 
   display.setCursor(0, 0);
   display.setTextSize(1);
+  if (now.day() < 10)
+  {
+    display.write("0");
+  }
   display.print(now.day(), DEC);
   display.write("/");
+  if (now.month() < 10)
+  {
+    display.write("0");
+  }
   display.print(now.month(), DEC);
   display.write("/");
   display.print(now.year(), DEC);
