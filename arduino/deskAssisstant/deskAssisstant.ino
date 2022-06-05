@@ -153,7 +153,7 @@ void setup ()
 }
 
 void loop ()
-{
+{/*
   for (int i = 1; i <= 5; i++)
   {
     dateTime();
@@ -162,5 +162,17 @@ void loop ()
   for (int i = 1; i <= 20; i++)
   {
     weather();
-  }
+  }*/
+
+  String charge = Serial.readString();
+  Serial.println(charge);
+  display.clearDisplay();
+  display.setTextSize(2);
+  display.setTextColor(WHITE);
+  display.setCursor(30, 30);
+  display.print(charge);
+  display.write("%");
+  display.drawRect(30, 30, 50, 25, WHITE);
+  display.drawRect(79, 37, 5, 10, WHITE);
+  display.display();
 }
