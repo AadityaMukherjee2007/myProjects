@@ -76,38 +76,43 @@ void dateTime()
   delay(1000);
 }
 
-void Display(float tc, float tf,int h, float hi)
+void weather()
 {
+  float tempC = dht.readTemperature();
+  float tempF = dht.readTemperature(true);
+  int humi = dht.readHumidity();
+  float heatI = dht.computeHeatIndex(tempC, humi, false);
+
   display.clearDisplay();
   display.setTextSize(1);
   display.setTextColor(WHITE);
-  
+
   display.setCursor(0, 0);
   display.print("Temperature");
   display.setCursor(80, 0);
   display.print("Humidity");
 
   display.setCursor(10, 22);
-  display.print(tc);
+  display.print(tempC);
   display.drawCircle(45, 22, 1, WHITE);
   display.setCursor(49, 22);
   display.write("C");
   display.setCursor(10, 42);
-  display.print(tf);
+  display.print(tempF);
   display.drawCircle(45, 42, 1, WHITE);
   display.setCursor(49, 42);
   display.write("F");
 
   display.setTextSize(2);
   display.setCursor(85, 15);
-  display.print(h);
+  display.print(humi);
   display.write("%");
 
   display.setTextSize(1);
   display.setCursor(90, 38);
   display.print("H.I.");
   display.setCursor(80, 52);
-  display.print(hi);
+  display.print(heatI);
   display.drawCircle(115, 52, 1, WHITE);
   display.setCursor(119, 52);
   display.print("C");
@@ -115,7 +120,7 @@ void Display(float tc, float tf,int h, float hi)
   display.display();
 }
 
-void setup () 
+void setup ()
 {
   Serial.begin(9600);
 
@@ -126,6 +131,8 @@ void setup ()
     Serial.flush();
     while (1) delay(10);
   }
+
+  //rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
 
   if (rtc.lostPower()) {
     Serial.println("RTC lost power, let's set the time!");
@@ -144,18 +151,15 @@ void setup ()
   }
 }
 
-void loop () 
+void loop ()
 {
-  float tempC = dht.readTemperature();
-  float tempF = dht.readTemperature(true);
-  int humi = dht.readHumidity();
-  float heatI = dht.computeHeatIndex(tempC, humi, false);
-
   for (int i = 1; i <= 5; i++)
   {
     dateTime();
   }
-  
-  Display(tempC, tempF, humi, heatI);
-  delay(5000);
+
+  for (int i = 1; i <= 20; i++)
+  {
+    weather();
+  }
 }
