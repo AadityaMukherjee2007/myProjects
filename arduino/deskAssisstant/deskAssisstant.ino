@@ -118,6 +118,7 @@ void weather()
   display.print("C");
 
   display.display();
+  delay(250);
 }
 
 void setup ()
