@@ -67,7 +67,23 @@ void dateTime()
   display.write("/");
   display.print(now.year(), DEC);
 
-  display.setCursor(80, 0);
+  if (now.dayOfTheWeek() == 0 || now.dayOfTheWeek() == 1 || now.dayOfTheWeek() == 5)
+  {
+    display.setCursor(90, 0);
+  }
+  else if (now.dayOfTheWeek() == 2)
+  {
+    display.setCursor(85, 0);
+  }
+  else if (now.dayOfTheWeek() == 4 || now.dayOfTheWeek() == 6)
+  {
+    display.setCursor(80, 0);
+  }
+  else
+  {
+    display.setCursor(74, 0);
+  }
+  display.setCursor(74, 0);
   display.print(daysOfTheWeek[now.dayOfTheWeek()]);
 
   display.display();
@@ -141,7 +157,7 @@ void setup ()
   Serial.begin(9600);
 
   dht.begin();
-
+  
   if (! rtc.begin()) {
     Serial.println("Couldn't find RTC");
     Serial.flush();
