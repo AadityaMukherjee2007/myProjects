@@ -3,24 +3,24 @@ import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.font.FontRenderContext;
-import java.util.InputMismatchException;
 
 public class CopyLabel implements ActionListener
 {
 	//var for infoFrame()
+	JFrame frame;
+	JPanel panel;
 	JTextField name, roll, sub;
 	JComboBox<String> Class, Section;
 	JLabel status;
 
 	public void infoFrame()
 	{
-		JFrame frame = new JFrame("Info");
+		frame = new JFrame("Info");
 		frame.setSize(350, 230);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setLayout(null);
 		frame.add(panel);
 
@@ -82,8 +82,7 @@ public class CopyLabel implements ActionListener
 		create.addActionListener(new CopyLabel());
 		panel.add(create);
 
-		status = new JLabel("Error");
-		status.setFont(new Font("", Font.PLAIN, 16));
+		status = new JLabel("");
 		status.setBounds(10, 150, 100, 25);
 		panel.add(status);
 
@@ -100,12 +99,18 @@ public class CopyLabel implements ActionListener
 		try
 		{
 			int rollNo = Integer.parseInt(roll.getText());
+			if (name.getText() == null || sub.getText() == null)
+			{
+				status.setForeground(Color.RED);
+				status.setText("Error!");
+				panel.revalidate();
+			}
 		}
-		catch (InputMismatchException err)
+		catch (Exception err)
 		{
 			status.setForeground(Color.RED);
 			status.setText("Error!");
-			
+			panel.revalidate();
 		}
 	}
 
