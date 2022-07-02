@@ -1,11 +1,12 @@
 from chatterbot import ChatBot
-from chatterbot.trainer import ChatterBotCorpusTrainer
+from chatterbot.trainers import ChatterBotCorpusTrainer
 
 chatbot = ChatBot('ChatBot')
 trainer = ChatterBotCorpusTrainer(chatbot)
 
-trainer.train("chatterbot.corpus.english.greetings", "chatterbot.corpus.english.conversations")
+trainer.train("chatterbot.corpus.english")
 
-user = input("> ")
-response = chatbot.get_response(user)
-print(response)
+while True:
+    user = input("> ")
+    response = chatbot.get_response(user)
+    print(">", response)
