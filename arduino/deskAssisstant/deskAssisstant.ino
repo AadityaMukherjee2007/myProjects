@@ -120,12 +120,12 @@ void weather()
   display.write("F");
 
   display.setTextSize(2);
-  display.setCursor(85, 16);
+  display.setCursor(86, 16);
   display.print(humi);
   display.write("%");
 
   display.setTextSize(1);
-  display.setCursor(90, 39);
+  display.setCursor(91, 39);
   display.print("H.I.");
   display.setCursor(80, 53);
   display.print(heatI);
