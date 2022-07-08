@@ -66,24 +66,24 @@ void dateTime()
   display.print(now.month(), DEC);
   display.write("/");
   display.print(now.year(), DEC);
-
-  if (now.dayOfTheWeek() == 0 || now.dayOfTheWeek() == 1 || now.dayOfTheWeek() == 5)
+  
+  switch(now.dayOfTheWeek())
   {
-    display.setCursor(90, 0);
+    case 0 : 
+    case 1 : display.setCursor(92, 0);
+    break;
+    case 2 : display.setCursor(86, 0);
+    break;
+    case 3 : display.setCursor(74, 0);
+    break;
+    case 4 : display.setCursor(80, 0);
+    break;
+    case 5 : display.setCursor(92, 0);
+    break;
+    case 6 : display.setCursor(80, 0);
+    break;
   }
-  else if (now.dayOfTheWeek() == 2)
-  {
-    display.setCursor(85, 0);
-  }
-  else if (now.dayOfTheWeek() == 4 || now.dayOfTheWeek() == 6)
-  {
-    display.setCursor(80, 0);
-  }
-  else
-  {
-    display.setCursor(74, 0);
-  }
-  display.setCursor(74, 0);
+  
   display.print(daysOfTheWeek[now.dayOfTheWeek()]);
 
   display.display();
@@ -120,17 +120,17 @@ void weather()
   display.write("F");
 
   display.setTextSize(2);
-  display.setCursor(85, 15);
+  display.setCursor(85, 16);
   display.print(humi);
   display.write("%");
 
   display.setTextSize(1);
-  display.setCursor(90, 38);
+  display.setCursor(90, 39);
   display.print("H.I.");
-  display.setCursor(80, 52);
+  display.setCursor(80, 53);
   display.print(heatI);
-  display.drawCircle(115, 52, 1, WHITE);
-  display.setCursor(119, 52);
+  display.drawCircle(115, 53, 1, WHITE);
+  display.setCursor(119, 53);
   display.print("C");
 
   display.display();
@@ -165,16 +165,6 @@ void setup ()
   }
 
   //rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
-
-  if (rtc.lostPower()) {
-    Serial.println("RTC lost power, let's set the time!");
-    // When time needs to be set on a new device, or after a power loss, the
-    // following line sets the RTC to the date & time this sketch was compiled
-    rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
-    // This line sets the RTC with an explicit date & time, for example to set
-    // January 21, 2014 at 3am you would call:
-    // rtc.adjust(DateTime(2014, 1, 21, 3, 0, 0));
-  }
 
   if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C))
   {
