@@ -5,7 +5,14 @@ import time
 urls = [
 	'https://www.investing.com/equities/apple-computer-inc',
 	'https://www.investing.com/equities/microsoft-corp',
-	'https://www.investing.com/equities/nike'
+	'https://www.investing.com/equities/nike',
+	'https://www.investing.com/equities/amazon-com-inc',
+	'https://www.investing.com/equities/google-inc',
+	'https://www.investing.com/equities/tesla-motors',
+	'https://www.investing.com/equities/nvidia-corp',
+	'https://www.investing.com/equities/intel-corp',
+	'https://www.investing.com/equities/adv-micro-device',
+	'https://www.investing.com/equities/netflix,-inc.'
 	]
 
 #print(page.status_code)
