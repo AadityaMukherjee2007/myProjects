@@ -15,19 +15,19 @@ urls = [
 	'https://www.investing.com/equities/netflix,-inc.'
 	]
 
-#print(page.status_code)
+# print(page.status_code)
 
 while True:
 	for url in urls:
 		page = requests.get(url)
 		scrape = BeautifulSoup(page.text, 'html.parser')
 
-		company = scrape.find('h1', {'class' : 'text-2xl font-semibold instrument-header_title__GTWDv mobile:mb-2'}).text
-		price = scrape.find('div', {'class' : 'instrument-price_instrument-price__3uw25 flex items-end flex-wrap font-bold'}).find_all('span')[0].text
-		change = scrape.find('div', {'class' : 'instrument-price_instrument-price__3uw25 flex items-end flex-wrap font-bold'}).find_all('span')[1].text
-		changePercent = scrape.find('div', {'class' : 'instrument-price_instrument-price__3uw25 flex items-end flex-wrap font-bold'}).find_all('span')[2].text
+		company = scrape.find('h1', {'class': 'text-2xl font-semibold instrument-header_title__GTWDv mobile:mb-2'}).text
+		price = scrape.find('div', {'class': 'instrument-price_instrument-price__3uw25 flex items-end flex-wrap font-bold'}).find_all('span')[0].text
+		change = scrape.find('div', {'class': 'instrument-price_instrument-price__3uw25 flex items-end flex-wrap font-bold'}).find_all('span')[1].text
+		changePercent = scrape.find('div', {'class': 'instrument-price_instrument-price__3uw25 flex items-end flex-wrap font-bold'}).find_all('span')[2].text
 
-		#print("Loading: " + url)
+		# print("Loading: " + url)
 		print(company, price, change, changePercent)
 
 	print('\n\n')
