@@ -7,7 +7,8 @@ urls = [
     'https://www.moneycontrol.com/india/stockpricequote/computers-software/tataconsultancyservices/TCS',
     'https://www.moneycontrol.com/india/stockpricequote/refineries/relianceindustries/RI',
     'https://www.moneycontrol.com/india/stockpricequote/banks-private-sector/icicibank/ICI02',
-    'https://www.moneycontrol.com/india/stockpricequote/computers-software/infosys/IT'
+    'https://www.moneycontrol.com/india/stockpricequote/computers-software/infosys/IT',
+    'https://www.moneycontrol.com/india/stockpricequote/diversified/itc/ITC'
 ]
 
 while True:
