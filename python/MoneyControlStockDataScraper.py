@@ -1,6 +1,6 @@
-import time
-import requests
+import time, requests, csv
 from bs4 import BeautifulSoup
+from urllib.parse import urlencode
 
 urls = []
 
@@ -26,19 +26,18 @@ while True:
     'https://www.moneycontrol.com/india/stockpricequote/diversified/itc/ITC'
 ]
 """
-while True:
-    try:
-        for url in urls:
-            page = requests.get(url)
-            scrape = BeautifulSoup(page.text, 'html.parser')
 
-            company = scrape.find('div', {'class': 'inid_name'}).find('h1').text
-            price = scrape.find('div', {'class': 'inprice1 bsecp'}).text
-            change = scrape.find('div', {'id': 'nsechange'}).text
+file = open('stockPrices.csv', 'w')
+writer = csv.writer(file)
+writer.
 
-            print(company, price, change)
-        print()
-        time.sleep(5)
-    except KeyboardInterrupt:
-        print('Program Terminated...')
-        exit()
+for url in urls:
+    page = requests.get(url)
+    scrape = BeautifulSoup(page.text, 'html.parser')
+
+    company = scrape.find('div', {'class': 'inid_name'}).find('h1').text
+    price = scrape.find('div', {'class': 'inprice1 bsecp'}).text
+    change = scrape.find('div', {'id': 'nsechange'}).text
+
+
+    print(company, price, change)
