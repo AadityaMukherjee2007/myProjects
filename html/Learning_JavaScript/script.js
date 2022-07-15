@@ -30,6 +30,10 @@ function calc()
 	{
 		z = Math.pow(x, y);
 	}
+	else if (op == "%")
+	{
+		z = x % y;
+	}
 	else
 	{
 		window.alert("Error!");
