@@ -28,7 +28,7 @@ urls = [
 ]
 
 
-file = open('stockPrices.csv', 'w')
+file = open('stockPrices.csv', 'w', newline = '')
 writer = csv.writer(file)
 writer.writerow(['Date', 'Company', 'Price', 'Change'])
 
