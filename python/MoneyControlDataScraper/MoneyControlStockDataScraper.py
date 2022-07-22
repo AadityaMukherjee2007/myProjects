@@ -63,7 +63,6 @@ finally:
     print("Written to file successfully!")
 
 
-
 with open('dateToday.txt', 'w') as dateFile:
     dateFile.write(str(date.today()))
     dateFile.close()
