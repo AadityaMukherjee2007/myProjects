@@ -1,7 +1,14 @@
 import requests, csv
+from os import path
 from datetime import date
 from bs4 import BeautifulSoup
-from urllib.parse import urlencode
+
+if path.exists('dateToday.txt') == False:
+    f = open('dateToday.txt', 'x')
+else:
+    f = open('dateToday.txt', 'r')
+    if f.read() == str(date.today()):
+        exit()
 
 """urls = []
 
@@ -28,7 +35,7 @@ urls = [
 ]
 
 
-file = open('stockPrices.csv', 'w', newline = '')
+file = open('stockPrices.csv', 'a', newline = '')
 writer = csv.writer(file)
 writer.writerow(['Date', 'Company', 'Price', 'Change'])
 
@@ -43,3 +50,6 @@ for url in urls:
     writer.writerow([date.today(), company, price, change])
     print(company, price, change)
 file.close()
+
+with open('dateToday.txt', 'w') as f:
+    f.write(str(date.today()))
