@@ -2,9 +2,10 @@ from bs4 import BeautifulSoup
 import requests
 import tkinter as tk
 
-usdInrVal, INR, USD = '', '', ''
+usdInrVal = ''
 
 url = 'https://in.investing.com/currencies/usd-inr'
+
 try:
 	page = requests.get(url)
 	val = BeautifulSoup(page.text, 'html.parser')
@@ -18,39 +19,43 @@ except:
 finally:
 	usdInrVal = float(usdInrVal)
 
+
 def InrToUsd():
 	if inrIn.get() != '':
-		Usd = str(format(float(inrIn.get()), '.2f') / usdInrVal)
+		Usd = str(float(inrIn.get()) / usdInrVal)
 		print(Usd)
-		usdIn.config(text=Usd)
+		usdIn.delete(0, "end")
+		usdIn.insert(0, Usd)
 
 def UsdToInr():
 	if usdIn.get() != '':
-		Inr = str(format(float(usdIn.get()), '.2f') * usdInrVal)
+		Inr = str(float(usdIn.get()) * usdInrVal)
 		print(Inr)
-		inrIn.config(text=Inr)
+		inrIn.delete(0, "end")
+		inrIn.insert(0, Inr)
 
+def main():
+	main = tk.Tk()
+	main.title('INR-USD')
+	main.resizable(False, False)
+	main.geometry('250x130')
 
+	global inrIn, usdIn
 
-main = tk.Tk()
-main.title('INR-USD')
-main.resizable(False, False)
-main.geometry('250x130')
+	inr = tk.Label(main, text='INR : ')
+	usd = tk.Label(main, text='USD : ')
+	inrIn = tk.Entry(main)
+	usdIn = tk.Entry(main)
+	convInrToUsd = tk.Button(main, text='INR-USD', command=InrToUsd)
+	convUsdToInr = tk.Button(main, text='USD-INR', command=UsdToInr)
 
-global inrIn, usdIn
+	inrIn.place(x = 50, y = 10)
+	usdIn.place(x = 50, y = 40)
+	inr.place(x = 10, y = 10)
+	usd.place(x = 10, y = 40)
+	convInrToUsd.place(x = 20, y = 80)
+	convUsdToInr.place(x = 150, y = 80)
 
-inr = tk.Label(main, text='INR : ')
-usd = tk.Label(main, text='USD : ')
-inrIn = tk.Entry(main, text = INR)
-usdIn = tk.Entry(main, text = USD)
-convInrToUsd = tk.Button(main, text='INR-USD', command=InrToUsd)
-convUsdToInr = tk.Button(main, text='USD-INR', command=UsdToInr)
+	main.mainloop()
 
-inrIn.place(x = 50, y = 10)
-usdIn.place(x = 50, y = 40)
-inr.place(x = 10, y = 10)
-usd.place(x = 10, y = 40)
-convInrToUsd.place(x = 20, y = 80)
-convUsdToInr.place(x = 100, y = 80)
-
-main.mainloop()
+main()
