@@ -7,6 +7,7 @@
 DHT dht(2, DHT11);
 RTC_DS3231 rtc;
 Adafruit_SSD1306 display(128, 64, &Wire, -1);
+int mode = 3;
 
 char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
@@ -155,7 +156,7 @@ void phoneInfo()
 void setup ()
 {
   Serial.begin(9600);
-
+  pinMode(mode, INPUT);
   dht.begin();
   
   if (! rtc.begin()) {
@@ -174,7 +175,7 @@ void setup ()
 }
 
 void loop ()
-{
+{/*
   for (int i = 1; i <= 5; i++)
   {
     dateTime();
@@ -183,5 +184,14 @@ void loop ()
   for (int i = 1; i <= 20; i++)
   {
     weather();
+  }*/
+  Serial.println(digitalRead(mode));
+  if (digitalRead(mode) == 1)
+  {
+    weather();
+  }
+  else
+  {
+    dateTime();
   }
 }
