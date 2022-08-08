@@ -4,8 +4,8 @@
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
-#define trigPin 2
-#define echoPin 3
+#define trigPin 3
+#define echoPin 2
 
 // 1 sec = 1000000 microseconds
 double s = (340 * 100) / 1000000;
@@ -45,6 +45,7 @@ void loop()
 
   double t = pulseIn(echoPin, HIGH);
   double d = 0.034 * t / 2;
+  Serial.println(d);
 
   display.clearDisplay();
   display.setTextSize(2);
