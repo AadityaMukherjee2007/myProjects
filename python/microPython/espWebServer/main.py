@@ -79,7 +79,7 @@ padding: 15px 30px;
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('', 80))
-s.listen(5)
+s.listen(3)
 
 while True:
     conn, addr = s.accept()
@@ -127,5 +127,10 @@ while True:
     conn.send('HTTP/1.1 200 OK\n')
     conn.send('Content-Type: text/html\n')
     conn.send('Connection: close\n\n')
-    conn.sendall(response)
+    try:
+        conn.sendall(response)
+    except SocketError as e:
+        if e.errno != err.ECONNRESET:
+            raise
+        pass
     conn.close()
