@@ -21,7 +21,7 @@ def server():
 <head>
 <title>ESP Web Server</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="data:,">
+<link rel="icon" type="image/x-icon" href="https://image.shutterstock.com/image-vector/cloud-iot-icon-wifi-sign-260nw-1822313777.ico">
 <style>
 .b
 {
