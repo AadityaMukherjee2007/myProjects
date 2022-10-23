@@ -1,7 +1,8 @@
 import phonenumbers
-from text import number
 from phonenumbers import geocoder
 from phonenumbers import carrier
+
+number = input("Enter number: ")
 
 ch_number = phonenumbers.parse(number, "CH") #'CH' stands for country history
 print(geocoder.description_for_number(ch_number, "en"))
