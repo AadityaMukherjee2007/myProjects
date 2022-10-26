@@ -9,5 +9,5 @@ if __name__ == "__main__":
 			message = "Hello, World",
 			timeout = 2
 		)
-		playsound("/home/linux/Documents/myProjects/python/notifications/not_1.wav")
+		playsound("./not_1.wav")
 		time.sleep(60)

@@ -16,7 +16,7 @@ void loop()
   
   if (val == HIGH)
   {
-    Serial.println("Moton detected");
+    Serial.println("Motion detected");
     digitalWrite(LED, HIGH);
   }
   else
