@@ -189,7 +189,7 @@ void loop ()
     }
   }
   
-  if (c == 0)
+  if (c == 1)
   {
     weather();
   }
