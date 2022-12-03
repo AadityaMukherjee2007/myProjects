@@ -7,7 +7,7 @@
 DHT dht(2, DHT11);
 RTC_DS3231 rtc;
 Adafruit_SSD1306 display(128, 64, &Wire, -1);
-int mode = 3;
+int mode = 13, c = 0;
 
 char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
@@ -175,18 +175,21 @@ void setup ()
 }
 
 void loop ()
-{/*
-  for (int i = 1; i <= 5; i++)
-  {
-    dateTime();
-  }
-
-  for (int i = 1; i <= 20; i++)
-  {
-    weather();
-  }*/
+{
   Serial.println(digitalRead(mode));
-  if (digitalRead(mode) == 1)
+  if (!digitalRead(mode))
+  {
+    if (c == 0)
+    {
+      c = 1;
+    }
+    else
+    {
+      c = 0;
+    }
+  }
+  
+  if (c == 1)
   {
     weather();
   }
