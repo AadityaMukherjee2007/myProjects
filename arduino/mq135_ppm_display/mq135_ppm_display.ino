@@ -37,15 +37,15 @@ void displayRZeroValues(float rz1, float rz2)
 
 void setup()
 {
-  pinMode(8, INPUT);
+  pinMode(12, INPUT);
   Serial.begin(9600);
 }
 
 void loop()
 {
-  Serial.println(digitalRead(8));
+  Serial.println(digitalRead(12));
   
-  if (digitalRead(8))
+  if (digitalRead(12))
   {
     ppm1 = s1.getPPM();
     ppm2 = s2.getPPM();
