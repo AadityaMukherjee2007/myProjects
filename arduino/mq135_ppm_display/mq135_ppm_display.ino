@@ -11,12 +11,12 @@ void displayAirQuality(float ppm1, float ppm2)
 { 
   u8g.setFont(u8g_font_profont15);
   u8g.setPrintPos(5, 10);
-  u8g.print("In:");
+  u8g.print("Sensor In:");
   u8g.setPrintPos(5, 25);
   u8g.print(ppm1);
   u8g.print(" ppm");
   u8g.setPrintPos(5, 42);
-  u8g.print("Out:");
+  u8g.print("Sensor Out:");
   u8g.setPrintPos(5, 57);
   u8g.print(ppm2);
   u8g.print(" ppm");
@@ -45,7 +45,7 @@ void loop()
 {
   Serial.println(digitalRead(8));
   
-  if (!digitalRead(8))
+  if (digitalRead(8))
   {
     ppm1 = s1.getPPM();
     ppm2 = s2.getPPM();
