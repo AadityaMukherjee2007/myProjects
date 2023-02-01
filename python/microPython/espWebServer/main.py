@@ -19,67 +19,146 @@ def server():
     html = """<!DOCTYPE html>
 <html>
 <head>
-<title>ESP Web Server</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/x-icon" href="https://image.shutterstock.com/image-vector/cloud-iot-icon-wifi-sign-260nw-1822313777.ico">
-<style>
-.b
-{
-text-decoration: none;
-border: none;
-background-color: grey;
-color: white;
-padding: 15px 30px;
-}
-</style>
+	<title>ESP Web Server</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="https://image.shutterstock.com/image-vector/cloud-iot-icon-wifi-sign-260nw-1822313777.ico">
+	
+	<style>
+        h2
+        {
+            text-align: center;
+        }
+		body
+		{
+			align-content: center;
+			align-self: center;
+		}
+
+		.b
+		{
+			text-decoration: none;
+			border: none;
+			border-radius: 5px;
+			background-color: grey;
+			color: white;
+			padding: 15px 30px;
+		}
+
+		.device
+		{
+			float: left;
+			border-radius: 5px;
+			background-color: lightgrey;
+			width: 300px;
+			align-content: center;
+			text-align: center;
+			box-shadow: 0 4px 8px 0 darkgrey;
+			transition:  0.3s;
+			padding: 10px;
+			margin: 20px;
+		}
+
+		.device:hover 
+		{
+			box-shadow: 0 8px 16px 0 darkgrey;
+		}
+
+		.d_1_2
+		{
+			float:  left;
+			margin-left: 20%;
+			margin-top: 5%;
+			margin-bottom: auto;
+		}
+
+		.d_3_4
+		{
+			float: left;
+			margin-left: 20%;
+			margin-top: 5%;
+			margin-bottom: auto;
+		}
+
+		.dateTime
+		{
+			margin-top: auto;
+			margin-bottom: auto;
+		}
+	</style>
 
 </head>
 
 <body>
+	<script type="text/javascript">
+        const Http = new XMLHttpRequest();
+        const url='http://192.168.0.182/?d1=on';
+		function refresh()
+		{
+			function update()
+			{
+				var today = new Date();
+				var date = today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
+				var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                console.log(time);
+                if (time == "3:40:0")
+                {
+                    Http.open("GET", url);
+                    Http.send();
+                }
+			}
+			setInterval(update, 1000);
+		}
+		refresh();
+	</script>
 
-<div style="margin-botton: 10px;">
-<h1>Device 1</h1>
-<p>GPIO state: """ + d1_state + """
-<p>
-<a href="/?d1=on"><button class="b" id="rm" style="margin-right: 10px;">ON</button></a>
-<a href="/?d1=off"><button class="b">OFF</button></a>
-</p>
-</div>
+	<h2>IOT Panel</h2>
 
-<div style="margin-botton: 10px;">
-<h1>Device 2</h1>
-<p>GPIO state: """ + d2_state + """
-<p>
-<a href="/?d2=on"><button class="b" id="rm" style="margin-right: 10px;">ON</button></a>
-<a href="/?d2=off"><button class="b">OFF</button></a>
-</p>
-</div>
+	<div class="d_1_2">
+		<div class="device" style="margin-right: 100px;">
+			<h1>Device 1</h1>
+			<p>GPIO state: """ + d1_state + """</p>
+			<div class="container">
+				<a href="/?d1=on"><button class="b" id="rm" style="margin-right: 10px;">ON</button></a>
+				<a href="/?d1=off"><button class="b">OFF</button></a>
+			</div>
+		</div>
 
-<div style="margin-botton: 10px;">
-<h1>Device 3</h1>
-<p>GPIO state: """ + d3_state + """
-<p>
-<a href="/?d3=on"><button class="b" id="rm" style="margin-right: 10px;">ON</button></a>
-<a href="/?d3=off"><button class="b">OFF</button></a>
-</p>
-</div>
+		<div class="device">
+			<h1>Device 2</h1>
+			<p>GPIO state: """ + d2_state + """</p>
+			<div class="container">
+				<a href="/?d2=on"><button class="b" id="rm" style="margin-right: 10px;">ON</button></a>
+				<a href="/?d2=off"><button class="b">OFF</button></a>
+			</div>
+		</div>
+	</div>
 
-<div>
-<h1>Device 4</h1>
-<p>GPIO state: """ + d4_state + """
-<p>
-<a href="/?d4=on"><button class="b" id="rm" style="margin-right: 10px;">ON</button></a>
-<a href="/?d4=off"><button class="b">OFF</button></a>
-</p>
-</div>
+	<div class="d_3_4">
+		<div class="device" style="margin-right: 100px;">
+			<h1>Device 3</h1>
+			<p>GPIO state: """ + d3_state + """</p>
+			<div class="container">
+				<a href="/?d3=on"><button class="b" id="rm" style="margin-right: 10px;">ON</button></a>
+				<a href="/?d3=off"><button class="b">OFF</button></a>
+			</div>
+		</div>
 
+		<div class="device">
+			<h1>Device 4</h1>
+			<p>GPIO state: """ + d4_state + """</p>
+			<div class="container">
+				<a href="/?d4=on"><button class="b" style="margin-right: 10px;">ON</button></a>
+				<a href="/?d4=off"><button class="b">OFF</button></a>
+			</div>
+		</div>
+	</div>
 </body>	
 </html>"""
     return html
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('', 80))
-s.listen(3)
+s.listen(5)
 
 while True:
     conn, addr = s.accept()
