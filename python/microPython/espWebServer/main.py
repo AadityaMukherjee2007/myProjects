@@ -100,7 +100,7 @@ def server():
 				var date = today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
 				var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
                 console.log(time);
-                if (time == "3:40:0")
+                if (time == "3:30:0")
                 {
                     Http.open("GET", url);
                     Http.send();
@@ -163,7 +163,6 @@ s.listen(5)
 while True:
     conn, addr = s.accept()
     print('Got a connection from', addr)
-    
     request = conn.recv(1024)
     request = str(request)
     print('Content =', request)
@@ -206,10 +205,6 @@ while True:
     conn.send('HTTP/1.1 200 OK\n')
     conn.send('Content-Type: text/html\n')
     conn.send('Connection: close\n\n')
-    try:
-        conn.sendall(response)
-    except SocketError as e:
-        if e.errno != err.ECONNRESET:
-            raise
-        pass
-    conn.close()
+    conn.sendall(response)
+    
+s.close()
