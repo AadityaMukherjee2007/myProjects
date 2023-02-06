@@ -16,7 +16,6 @@ d3.value(1)
 d4.value(1)
 
 import network
-import errno
 import esp
 esp.osdebug(None)
 
