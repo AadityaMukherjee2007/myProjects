@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ESP Web Server</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="icon" type="image/x-icon" href="https://image.shutterstock.com/image-vector/cloud-iot-icon-wifi-sign-260nw-1822313777.ico">
+	
+	<style>
+		body
+		{
+			align-content: center;
+			align-self: center;
+		}
+
+		.b
+		{
+			text-decoration: none;
+			border: none;
+			border-radius: 5px;
+			background-color: grey;
+			color: white;
+			padding: 15px 30px;
+		}
+
+		.device
+		{
+			float: left;
+			border-radius: 5px;
+			background-color: lightgrey;
+			width: 300px;
+			align-content: center;
+			text-align: center;
+			box-shadow: 0 4px 8px 0 darkgrey;
+			transition:  0.3s;
+			padding: 10px;
+			margin: 20px;
+		}
+
+		.device:hover 
+		{
+			box-shadow: 0 8px 16px 0 darkgrey;
+		}
+
+		.d_1_2
+		{
+			float:  left;
+			margin-left: 20%;
+			margin-top: 5%;
+			margin-bottom: auto;
+		}
+
+		.d_3_4
+		{
+			float: left;
+			margin-left: 20%;
+			margin-top: 5%;
+			margin-bottom: auto;
+		}
+
+		#heading
+		{
+			text-align: center;
+			background-color: lightgrey
+			height: 80px;
+			margin: -10px;
+		}
+
+		.sideBar
+		{
+			background-color: lightgray;
+			width: 10%;
+			height: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;	
+			transition: all 0.5s ease;
+		}
+
+		.profile
+		{
+			text-align: center;		
+			margin-top: 10px;
+		}
+
+		.opt
+		{
+			padding-left: 5%;
+			list-style-type: none;
+		}
+	</style>
+
+</head>
+
+<body>
+	<script type="text/javascript">
+		function refresh()
+		{
+			function update()
+			{
+				var today = new Date();
+				var date = today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
+				var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+				document.getElementById("Date").innerHTML = date;
+				document.getElementById("Time").innerHTML = time;
+			}
+			setInterval(update, 1000);
+		}
+		refresh();
+	</script>
+
+	<div class="sideBar">
+		<div class="profile">
+			<i class="fa fa-user-circle-o" style="font-size: 70px;"></i>
+			<h2 style="text-align: center;">User</h2>
+		</div>
+
+		<div class="menu">
+			<ul class="opt">
+				<li>
+					<a href="#" style="color: black; text-decoration: none;">
+						<span><i class="fa fa-home" style="font-size: 40px;"></i></span>
+						<span style="font-size: 30px;">Home</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<h1 id="heading">IOT Panel</h1>
+	<!---<h3 id="Time"></h3>
+	<h3 id="Date"></h3>-->
+
+	<div class="d_1_2">
+		<div class="device" style="margin-right: 100px;">
+			<h1>Device 1</h1>
+			<p>GPIO state: """ + d1_state + """</p>
+			<div class="container">
+				<a href="/?d1=on"><button class="b" id="rm" style="margin-right: 10px;">ON</button></a>
+				<a href="/?d1=off"><button class="b">OFF</button></a>
+			</div>
+		</div>
+
+		<div class="device">
+			<h1>Device 2</h1>
+			<p>GPIO state: """ + d2_state + """</p>
+			<div class="container">
+				<a href="/?d2=on"><button class="b" id="rm" style="margin-right: 10px;">ON</button></a>
+				<a href="/?d2=off"><button class="b">OFF</button></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="d_3_4">
+		<div class="device" style="margin-right: 100px;">
+			<h1>Device 3</h1>
+			<p>GPIO state: """ + d3_state + """</p>
+			<div class="container">
+				<a href="/?d3=on"><button class="b" id="rm" style="margin-right: 10px;">ON</button></a>
+				<a href="/?d3=off"><button class="b">OFF</button></a>
+			</div>
+		</div>
+
+		<div class="device">
+			<h1>Device 4</h1>
+			<p>GPIO state: """ + d4_state + """</p>
+			<div class="container">
+				<a href="/?d4=on"><button class="b" style="margin-right: 10px;">ON</button></a>
+				<a href="/?d4=off"><button class="b">OFF</button></a>
+			</div>
+		</div>
+	</div>
+</body>	
+</html>

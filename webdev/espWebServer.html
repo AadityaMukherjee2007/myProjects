@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ESP Web Server</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
+<style>
+.b
+{
+text-decoration: none;
+border: none;
+background-color: grey;
+color: white;
+padding: 15px 30px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div style="margin-botton: 10px;">
+<h1>Device 1</h1>
+<p>GPIO state: """ + gpio_state + """
+<p>
+<a href="/?d1=on"><button class="b" id="rm" style="margin-right: 10px;">ON</button></a>
+<a href="/?d1=off"><button class="b">OFF</button></a>
+</p>
+</div>
+
+<div style="margin-botton: 10px;">
+<h1>Device 2</h1>
+<p>GPIO state: """ + gpio_state + """
+<p>
+<a href="/?d2=on"><button class="b" id="rm" style="margin-right: 10px;">ON</button></a>
+<a href="/?d2=off"><button class="b">OFF</button></a>
+</p>
+</div>
+
+<div style="margin-botton: 10px;">
+<h1>Device 3</h1>
+<p>GPIO state: """ + gpio_state + """
+<p>
+<a href="/?d3=on"><button class="b" id="rm" style="margin-right: 10px;">ON</button></a>
+<a href="/?d3=off"><button class="b">OFF</button></a>
+</p>
+</div>
+
+<div>
+<h1>Device 4</h1>
+<p>GPIO state: """ + gpio_state + """
+<p>
+<a href="/?d4=on"><button class="b" id="rm" style="margin-right: 10px;">ON</button></a>
+<a href="/?d4=off"><button class="b">OFF</button></a>
+</p>
+</div>
+
+</body>	
+</html>
