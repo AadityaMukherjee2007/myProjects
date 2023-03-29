@@ -5,45 +5,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>TalkFlow</title>
 
-	<style>
-		body
-		{
-			text-align: center;
-		}
-
-		section
-		{
-			display: flex;
-			align-items: center;
-		}
-
-		.container
-		{
-			font-size: 20px;
-			color: white;
-			text-align: center;
-			height: 150px;
-			width: 350px;
-			background-color: grey;
-			margin: auto;
-			opacity: 70%;
-		}
-
-		.input
-		{
-			font-size: 18px;
-		}
-	</style>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 	<h1>TalkFlow</h1>
 	<section>
 		<div class="container">
-			<form action="/checkCrdentials" method="post">
-				<p> Username <input class="input" id="iuser" type="text"></p>
-				<p> Password <input class="input" id="ipasswd" type="password"></p>
-				<button class="input" onclick="checkCredentials()">Login</button>
+			<form>
+				<p><input class="input" id="iuser" type="text" placeholder="Username"></p>
+				<p><input class="input" id="ipasswd" type="password" placeholder="Password"></p>
+				<input type="button" class="input" value="Login">
 			</form>
 		</div>
 	</section>
