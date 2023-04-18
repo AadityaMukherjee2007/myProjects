@@ -17,17 +17,6 @@
 			color: ghostwhite;
 		}
 
-		.left
-		{
-			height: 100%;
-			width: 100px;
-			float: left;
-			margin-left: -10px;
-			padding: 20px;
-			padding-bottom: 50%;
-			background-color: beige;
-		}
-
 		section
 		{
 			padding-top: 100px;
@@ -74,14 +63,12 @@
 		<h1>TalkFlow</h1>
 	</header>
 
-	<div class="left"></div>
-
 	<section>
 		<div class="container">
-			<form action="{{ url_for("index")}}" method="post">
-				<p><input class="input" name="uname" id="iuser" type="text" placeholder="Username"></p>
-				<p><input class="input" name="passwd" id="ipasswd" type="password" placeholder="Password"></p>
-				<input type="submit" id="buttonDesign" value="Login">
+			<form action="/signup" method="post">
+				<p><input class="input" name="uname" id="iuser" type="text" placeholder="Username" values="{{request.form.uname}}"></p>
+				<p><input class="input" name="passwd" id="ipasswd" type="password" placeholder="Password" values="{{request.form.passwd}}"></p>
+				<input type="submit" id="buttonDesign" value="Signup">
 			</form>
 		</div>
 	</section>

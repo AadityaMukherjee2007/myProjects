@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TalkFlow</title>
+
+	<style>
+		body
+		{
+			background-color: #3E3636;
+			text-align: center;
+		}
+
+		h1
+		{
+			color: ghostwhite;
+		}
+
+		section
+		{
+			padding-top: 100px;
+			display: flex;
+			align-items: center;
+		}
+
+		.container
+		{
+			font-size: 20px;
+			text-align: center;
+			height: 150px;
+			width: 350px;
+			background-color: #979A9A;
+			margin: auto;
+			border-radius: 10px;
+			border-width: 5px;
+			border-color: black;
+		}
+
+		.input
+		{
+			font-size: 18px;
+			background-color: lightgrey;
+			border: none;
+			color: white;
+		}
+
+		::placeholder
+		{
+			color: white;
+		}
+
+		#buttonDesign
+		{
+			font-size: 18px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<header>
+		<h1>TalkFlow</h1>
+	</header>
+
+	<section>
+		<div class="container">
+			<form action="/login" method="post">
+				<p><input class="input" name="uname" id="iuser" type="text" placeholder="Username"></p>
+				<p><input class="input" name="passwd" id="ipasswd" type="password" placeholder="Password"></p>
+				<input type="submit" id="buttonDesign" value="Login">
+			</form>
+		</div>
+	</section>
+
+</body>
+
+</html>
