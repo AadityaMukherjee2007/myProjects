@@ -18,7 +18,6 @@ def signup():
 			userInfo = (username, password)
 			cur.execute("INSERT INTO info VALUES(?, ?)", userInfo)
 			con.commit()
-		#else:
 
 	return render_template('signup.html')
 
@@ -27,8 +26,15 @@ def login():
 	if request.method == "POST":
 		username = request.form["uname"]
 		password = request.form["passwd"]
+		userInfo = (username, password)
 
-		print(username + password)
+		if username != None and password != None:
+			check = cur.execute("SELECT * FROM info WHERE user = ? AND pass = ?", userInfo)
+			if check.fetchall():
+				return "Login Successful"
+			else:
+				return "Login Unsuccessful"
+
 		return username + password
 	return render_template('login.html')
 
