@@ -1,33 +1,27 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MaterialApp(home: Home()));
+void main() => runApp(MaterialApp(home: Home()));
 
 class Home extends StatelessWidget {
-  const Home({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("My First App"),
+        title: const Text('Buttons&Icons'),
         centerTitle: true,
-        backgroundColor: Colors.red[700],
+        backgroundColor: const Color.fromARGB(255, 228, 208, 121),
       ),
       body: Center(
-        child: Text(
-          "Flutter",
-          style: TextStyle(
-              fontSize: 50.0,
-              fontFamily: 'IndieFlower',
-              fontWeight: FontWeight.bold,
-              letterSpacing: 2.0,
-              color: Colors.grey[700]),
+        /*child: Icon(
+          Icons.airport_shuttle,
+          color: Colors.cyan,
+          size: 150,
+        ),*/
+
+        child: FloatingActionButton(
+          onPressed: () {},
+          child: Text('Click'),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Colors.red[700],
-        child: const Text("Click"),
       ),
     );
   }
