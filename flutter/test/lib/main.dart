@@ -18,10 +18,14 @@ class Home extends StatelessWidget {
           size: 150,
         ),*/
 
-        child: FloatingActionButton(
-          onPressed: () {},
-          child: Text('Click'),
-        ),
+        child: FloatingActionButton.large(onPressed: () {},
+        icon: Icon().),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('You clicked me');
+        },
+        child: Text('Click me'),
       ),
     );
   }
