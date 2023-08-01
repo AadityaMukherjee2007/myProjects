@@ -18,15 +18,31 @@ class Home extends StatelessWidget {
           size: 150,
         ),*/
 
-        child: FloatingActionButton.large(onPressed: () {},
-        icon: Icon().),
+        /*
+        child: ElevatedButton.icon(
+          onPressed: () {  },
+          icon: const Icon(
+            Icons.mail,
+          ),
+          label: const Text('mail me'),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.amber
+          ),
+        ),*/
+
+        child: IconButton(
+          onPressed: () {print('you clicked me');},
+          icon: Icon(Icons.alternate_email),
+          color: Colors.amber,
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           print('You clicked me');
         },
-        child: Text('Click me'),
+        child: const Text('Click'),
       ),
     );
   }
 }
+
