@@ -9,7 +9,7 @@ class Home extends StatelessWidget
   {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Containers & Padding'),
+        title: const Text('Containers'),
         centerTitle: true,
         backgroundColor: Colors.redAccent,
       ),
