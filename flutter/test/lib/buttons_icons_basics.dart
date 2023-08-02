@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(home: Home()));
+void main() => runApp(const MaterialApp(home: Home()));
 
 class Home extends StatelessWidget {
+  const Home({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +34,7 @@ class Home extends StatelessWidget {
 
         child: IconButton(
           onPressed: () {print('you clicked me');},
-          icon: Icon(Icons.alternate_email),
+          icon: const Icon(Icons.alternate_email),
           color: Colors.amber,
         ),
       ),
