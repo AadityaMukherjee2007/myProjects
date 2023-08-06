@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 
-<<<<<<< HEAD
 void main() => runApp(const MaterialApp(home: Home()));
-=======
-void main() => runApp(MaterialApp(home: Home()));
->>>>>>> e3cf57fe3e5bb85a4faee6f9459fdc94fa8a130f
 
 class Home extends StatelessWidget
 {
@@ -43,7 +39,6 @@ class Home extends StatelessWidget
             child: const Text('One')
           ),
 
-<<<<<<< HEAD
           Padding(
             padding: const EdgeInsets.all(20),
             child: Container(
@@ -59,8 +54,8 @@ class Home extends StatelessWidget
                 color: Colors.amber,
                 child: const Text('Three')
             ),
-          )
-=======
+          ),
+
           Container(
               padding: const EdgeInsets.all(30),
               color: Colors.pink,
@@ -72,7 +67,6 @@ class Home extends StatelessWidget
               color: Colors.yellow,
               child: const Text('Three')
           ),
->>>>>>> e3cf57fe3e5bb85a4faee6f9459fdc94fa8a130f
         ],
       ),
     );
