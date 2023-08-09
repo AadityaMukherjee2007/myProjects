@@ -6,8 +6,17 @@ void main() {
   ));
 }
 
-class NinjaCard extends StatelessWidget {
+class NinjaCard extends StatefulWidget {
   const NinjaCard({super.key});
+
+  @override
+  State<NinjaCard> createState() => _NinjaCardState();
+}
+
+class _NinjaCardState extends State<NinjaCard> {
+
+  int ninjaLevel = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,11 +27,30 @@ class NinjaCard extends StatelessWidget {
           backgroundColor: Colors.grey[850],
           elevation: 0,
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            setState(() {
+              ninjaLevel += 1;
+            });
+            },
+          backgroundColor: Colors.grey[850],
+          child: const Icon(Icons.add),
+        ),
         body: Padding(
             padding: const EdgeInsets.fromLTRB(30, 40, 30, 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const Center(
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage("assets/kakashi_1.jpg"),
+                    radius: 80,
+                  ),
+                ),
+                Divider(
+                  height: 50,
+                  color: Colors.grey[800],
+                ),
                 const Text(
                   'NAME',
                   style: TextStyle(color: Colors.grey, letterSpacing: 2),
@@ -39,7 +67,7 @@ class NinjaCard extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 40,
                 ),
                 const Text(
                   'CURRENT NINJA LEVEL',
@@ -49,7 +77,7 @@ class NinjaCard extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  '10',
+                  '$ninjaLevel',
                   style: TextStyle(
                       color: Colors.amberAccent[200],
                       letterSpacing: 2,
@@ -57,7 +85,7 @@ class NinjaCard extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 40,
                 ),
                 Row(
                   children: [
@@ -79,6 +107,8 @@ class NinjaCard extends StatelessWidget {
                   ],
                 )
               ],
-            )));
+            )
+        ),
+    );
   }
 }
