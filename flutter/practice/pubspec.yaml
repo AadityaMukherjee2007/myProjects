@@ -76,7 +76,11 @@ flutter:
   fonts:
      - family: IndieFlower
        fonts:
-         - asset: fonts/IndieFlower-Regular.tff
+         - asset: fonts/IndieFlower-Regular.ttf
+     - family: Borel
+       fonts:
+         - asset: fonts/Borel-Regular.ttf
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
