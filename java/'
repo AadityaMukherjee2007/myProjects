@@ -20,11 +20,11 @@ public class dateTime_gui
         frame.add(panel);
 
         time = new JLabel();
-        time.setBounds(15, 10, 160, 25);
+        time.setBounds(5, 20, 160, 25);
         panel.add(time);
 
         date = new JLabel();
-        date.setBounds(15, 30, 160, 25);
+        date.setBounds(5, 40, 160, 25);
         panel.add(date);
 
         Thread clock = new Thread()
