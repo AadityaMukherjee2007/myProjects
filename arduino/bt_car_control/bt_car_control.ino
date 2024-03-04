@@ -1,4 +1,4 @@
-int m1f = 8, m1b = 9, m2f = 10, m2b = 11;
+int m1f = 6, m1b = 7, m2f = 5, m2b = 4;
 
 int arr[] = {m1f, m1b, m2f, m2b};
 
@@ -38,11 +38,11 @@ void setup()
 
 void loop()
 {
-  while (Serial.available())
+  /*while (Serial.available())
   {
       char in = Serial.read();
       Serial.println(in);
   }
-
-  digitalWrite(m2b, HIGH);
+  */
+  digitalWrite(m2f, HIGH);
 }
