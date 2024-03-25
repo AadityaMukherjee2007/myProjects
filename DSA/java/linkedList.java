@@ -34,11 +34,45 @@ public class linkedList
         return this.head == null;
     }
 
+    public int size()
+    {
+        Node current = this.head;
+        int count = 0;
+
+        while (current != null)
+        {
+            count += 1;
+            current = current.next_node;
+        }
+
+        return count;
+    }
+
     public void add(int data)
     {
         Node new_node = new Node(data);
         new_node.next_node = this.head;
         this.head = new_node;
+    }
+
+    public int getIndex(int n)
+    {
+        
+    }
+
+    public int search(int n)
+    {
+        Node current = this.head;
+        while (current != null)
+        {
+            if (current.getData() == n)
+            {
+                return n;
+            }
+            current = current.next_node;
+        }
+
+        return -1;
     }
     
     @Override
@@ -48,12 +82,14 @@ public class linkedList
         String linkedlist = "";
         linkedlist += "[Head: " + current.getData() + "]";
 
-        if (!isEmpty())
+        if (size() > 1)
         {
             linkedlist += "-> ";
         }
 
-        while (!current.isEmpty())
+        current = current.next_node;
+
+        while (current != null)
         {
             if (current.next_node == null)
             {
@@ -67,10 +103,5 @@ public class linkedList
         }
 
         return linkedlist;
-    }
-    
-    public static void main(String args[])
-    {
-        
     }
 }
