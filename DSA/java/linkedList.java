@@ -57,22 +57,56 @@ public class linkedList
 
     public int getIndex(int n)
     {
-        
-    }
-
-    public int search(int n)
-    {
         Node current = this.head;
+        int index = 0;
         while (current != null)
         {
             if (current.getData() == n)
             {
-                return n;
+                return index;
+            }
+            index++;
+            current = current.next_node;
+        }
+
+        return -1; //return -1 if not found
+    }
+
+    public int getValue(int n)
+    {
+        Node current = this.head;
+        int index = 0;
+        while (current != null)
+        {
+            if (index == n)
+            {
+                return current.getData();
             }
             current = current.next_node;
         }
 
         return -1;
+    }
+
+    public void insert(int data, int index)
+    {
+        if (index == 0)
+        {
+            add(data);
+        }
+        else if (index > 0)
+        {
+            Node newData = new Node(data);
+            Node current = this.head;
+            int i = 0; 
+            while (i > index)
+            {
+                current = current.next_node;
+                i++;
+            }
+
+            
+        }
     }
     
     @Override

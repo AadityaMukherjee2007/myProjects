@@ -14,11 +14,10 @@ public class Test
         l.add(90);
         l.add(100);
 
-
         System.out.println(l);
         System.out.println(l.size());
         System.out.println(l.isEmpty());
-        System.out.println(l.search(0));
-        System.out.println(l.search(80));
+        System.out.println(l.getIndex(80));
+        System.out.println(l.getValue(0));
     }
 }
