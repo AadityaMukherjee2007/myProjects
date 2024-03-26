@@ -19,5 +19,11 @@ public class Test
         System.out.println(l.isEmpty());
         System.out.println(l.getIndex(80));
         System.out.println(l.getValue(0));
+
+        l.insert(55, 4);
+        System.out.println(l);
+        System.out.println();
+        l.delete(55);
+        System.out.println(l);
     }
 }
