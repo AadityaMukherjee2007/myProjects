@@ -90,9 +90,10 @@ public class linkedList
             current = current.next_node;
         }
 
-        return -1;
+        return -1; //return -1 if not found
     }
 
+    // needs error handling
     public Node returnNodeAtIndex(int index)
     {
         Node toBeReturned = this.head;
@@ -106,6 +107,7 @@ public class linkedList
         return toBeReturned;
     }
 
+    //needs error handling
     public void delete(int n)
     {
         int index = getIndex(n);
@@ -115,8 +117,15 @@ public class linkedList
         a.next_node = b;
     }
 
+    //needs error handling 
     public void insert(int data, int index)
     {
+        if (index < 0 || index > size() - 1)
+        {
+            System.out.println("Invalid index!");
+            return;
+        }
+
         if (index == 0)
         {
             add(data);
@@ -135,6 +144,28 @@ public class linkedList
             Node next = current.next_node;
             current.next_node = newData;
             newData.next_node = next;
+        }
+    }
+
+    public void sort()
+    {
+        // implementing selection sort 
+        int x = 0;
+        for (Node i = head; i != null; i = i.next_node, x++)
+        {
+            int largest = i.getData(), index = x + 1, pos = x;
+            for (Node j = i.next_node; j != null; j = j.next_node, index++)
+            {
+                if (largest < j.getData())
+                {
+                    largest  = j.getData();
+                    pos = index;
+                }
+            }
+
+            int temp = i.getData();
+            i.setData(largest);
+            returnNodeAtIndex(pos).setData(temp);
         }
     }
     

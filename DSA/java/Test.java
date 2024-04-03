@@ -3,16 +3,16 @@ public class Test
     public static void main(String args[])
     {
         linkedList l = new linkedList();
-        l.add(10);
-        l.add(20);
-        l.add(30);
-        l.add(40);
-        l.add(50);
-        l.add(60);
-        l.add(70);
-        l.add(80);
-        l.add(90);
-        l.add(100);
+        l.add(65);
+        l.add(44);
+        l.add(76);
+        l.add(23);
+        l.add(54);
+        l.add(13);
+        l.add(97);
+        l.add(74);
+        l.add(32);
+        l.add(38);
 
         System.out.println(l);
         System.out.println(l.size());
@@ -25,5 +25,9 @@ public class Test
         System.out.println();
         l.delete(55);
         System.out.println(l);
+        l.sort();
+        System.out.println(l);
+
+        l.insert(100, 100);
     }
 }
