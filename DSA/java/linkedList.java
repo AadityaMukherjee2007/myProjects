@@ -198,6 +198,11 @@ public class linkedList
         }
     }
 
+    public void merge(linkedList list)
+    {
+        returnNodeAtIndex(size() - 1).next_node = list.head;
+    }
+
     @Override
     public String toString()
     {

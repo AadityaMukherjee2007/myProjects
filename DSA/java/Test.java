@@ -32,5 +32,20 @@ public class Test
         l.insert(40, 6);
         l.reverse();
         System.out.println(l);
+
+
+
+        linkedList newlist = new linkedList();
+        newlist.add(10);
+        newlist.add(8);
+        newlist.add(6);
+        newlist.add(4);
+        newlist.add(2);
+        newlist.add(0);
+
+        System.out.println(newlist);
+
+        newlist.merge(l);
+        System.out.println(newlist);
     }
 }
