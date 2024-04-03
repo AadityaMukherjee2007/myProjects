@@ -169,6 +169,35 @@ public class linkedList
         }
     }
     
+    public void reverse()
+    {
+        Node current = this.head;
+        int i = 0, l = size(), mid = 0;
+
+        if (l < 2)
+        {
+            return;
+        }
+
+        if (l % 2 == 0)
+        {
+            mid = (l / 2) - 1;
+        }
+        else
+        {
+            mid = (l + 1) / 2;
+        }
+
+        while (i <= mid)
+        {
+            int j = l - (i + 1), val = current.getData();
+            current.setData(returnNodeAtIndex(j).getData());
+            returnNodeAtIndex(j).setData(val);
+            current = current.next_node;
+            i++;
+        }
+    }
+
     @Override
     public String toString()
     {

@@ -29,5 +29,8 @@ public class Test
         System.out.println(l);
 
         l.insert(100, 100);
+        l.insert(40, 6);
+        l.reverse();
+        System.out.println(l);
     }
 }
