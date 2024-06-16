@@ -4,6 +4,7 @@ public class Stack
 {
     char[] arr;
     int top = 0;
+
     Stack(int len)
     {
         arr = new char[len];
@@ -11,7 +12,7 @@ public class Stack
 
     public void push(char ch)
     {
-        if (top == arr.length)
+        if (isFull())
         {
             System.out.println("Stack is full!");
             return;
@@ -23,11 +24,35 @@ public class Stack
 
     public void pop()
     {
-        if (top == 0)
+        if (isEmpty())
         {
             System.out.println("Stack is empty!");
         }
-        arr[top] = '\0';
+        arr[--top] = '\0';
+    }
+
+    public boolean isEmpty()
+    {
+        if (top == 0)
+            return true;
+        
+        return false;
+    }
+
+    public boolean isFull()
+    {
+        if (top == arr.length)
+            return true;
+        
+        return false;
+    }
+
+    public char current()
+    {
+        if (isEmpty())
+            return '\0';
+        else
+            return arr[top - 1];
     }
 
     public void print()
@@ -37,7 +62,7 @@ public class Stack
             System.out.println(arr[i]);
         }
     }
-
+    /*
     public static void main(String args[])
     {
         Stack obj = new Stack(10);
@@ -51,5 +76,8 @@ public class Stack
         obj.pop();
 
         obj.print();
-    }
+
+        System.out.println(obj.current());
+    } 
+    */
 }
