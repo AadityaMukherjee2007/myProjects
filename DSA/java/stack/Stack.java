@@ -41,7 +41,7 @@ public class Stack
 
     public boolean isFull()
     {
-        if (top == arr.length)
+        if (top == arr.length - 1)
             return true;
         
         return false;
