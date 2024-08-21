@@ -1,15 +1,16 @@
 import requests, csv
 from os import path
-from datetime import date
+import datetime
 from bs4 import BeautifulSoup
+
+timeData = datetime.datetime.now()
 
 if path.exists('dateToday.txt') == False:
     f = open('dateToday.txt', 'x')
 else:
     f = open('dateToday.txt', 'r')
-    if f.read() == str(date.today()):
-        #exit()
-        pass
+    if f.read() == str(timeData):
+        exit()
 
 
 
@@ -43,7 +44,7 @@ urls = f.read().splitlines()
 if path.exists('stockPrices.csv') == False:
     file = open('stockPrices.csv', 'w')
     writer = csv.writer(file)
-    writer.writerow(['Date', 'Company', 'Price', 'Change'])
+    writer.writerow(['Date', 'Time', 'Company', 'Price', 'Change'])
 else:
     file = open('stockPrices.csv', 'a')
     writer = csv.writer(file)
@@ -58,13 +59,15 @@ try:
         price = scrape.find('div', {'class': 'inprice1 bsecp'}).text
         change = scrape.find('div', {'id': 'nsechange'}).text
 
-        writer.writerow([date.today(), company, price, change])
+        writer.writerow([timeData.date(), timeData.time(), company, price, change])
         print(company, price, change)
+
+    writer.writerow([])
     file.close()
 finally:
     print("Written to file successfully!")
 
 
 with open('dateToday.txt', 'w') as dateFile:
-    dateFile.write(str(date.today()))
+    dateFile.write(str(timeData))
     dateFile.close()
