@@ -8,7 +8,8 @@ if path.exists('dateToday.txt') == False:
 else:
     f = open('dateToday.txt', 'r')
     if f.read() == str(date.today()):
-        exit()
+        #exit()
+        pass
 
 
 
@@ -45,6 +46,7 @@ if path.exists('stockPrices.csv') == False:
     writer.writerow(['Date', 'Company', 'Price', 'Change'])
 else:
     file = open('stockPrices.csv', 'a')
+    writer = csv.writer(file)
 
 
 try:
