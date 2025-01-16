@@ -9,11 +9,11 @@ url = 'https://in.investing.com/currencies/usd-inr'
 try:
 	page = requests.get(url)
 	val = BeautifulSoup(page.text, 'html.parser')
-	usdInrVal = val.find('bdo', {'class': 'last-price-value js-streamable-element'}).text
+	usdInrVal = val.find('div', {'class': 'text-5xl/9 font-bold text-[#232526] md:text-[42px] md:leading-[60px]'}).text
 	with open('usdInrVal.txt', 'w') as f:
 		f.write(usdInrVal)
 except:
-	print('No internet\nUsing previous data...')
+	print('Error\nUsing previous data...')
 	with open('usdInrVal.txt', 'r') as f:
 		usdInrVal = f.read()
 finally:

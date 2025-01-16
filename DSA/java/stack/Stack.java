@@ -62,7 +62,7 @@ public class Stack
             System.out.println(arr[i]);
         }
     }
-    /*
+    
     public static void main(String args[])
     {
         Stack obj = new Stack(10);
@@ -79,5 +79,5 @@ public class Stack
 
         System.out.println(obj.current());
     } 
-    */
+    
 }
