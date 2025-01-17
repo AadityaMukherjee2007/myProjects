@@ -15,3 +15,7 @@ console.log(x);
 console.log(y);
 console.log(isFollow);
 console.log(pi);
+
+console.log(typeof(price))
+console.log(typeof(full_name))
+console.log(typeof(x))
