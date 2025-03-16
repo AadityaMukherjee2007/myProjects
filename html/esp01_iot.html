@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Room TubeLight</title>
+</head>
+<body>
+    <button class="control" onclick="control()">Toggle</button>
+    <script>
+        x = 0;
+  
+        function control(){
+            if (x == 0)
+            {
+                x == 1;
+            }
+            else 
+            {
+                x == 0;
+            }
+            console.log(x);
+            location.replace("?state="+x);
+        }
+    </script>
+</body>
+</html>
