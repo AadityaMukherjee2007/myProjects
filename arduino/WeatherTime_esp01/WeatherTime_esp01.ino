@@ -12,10 +12,10 @@
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 // WiFi & API Settings
-const char* wifiSSIDs[] = {"i=q/t#Current", "TapeshDuttaRoy", "WiFi_3"};  
-const char* wifiPasswords[] = {"2022#ElectronFlow", "Tapesh@1977", "Password3"};
-const int numWiFi = 3;  
-const char* API_KEY = "7d721bf1d16d0ceb3f87398c967842a4";
+const char* wifiSSIDs[] = {"TapeshDuttaRoy", "Tiyasa", "i=q/t#Current"};  
+const char* wifiPasswords[] = {"Tapesh@1977", "duttaroy123", "2022#ElectronFlow"};
+const int numWiFi = 2;  
+const char* API_KEY = "7e2725b04e241d0099a992635554b7c8";
 const char* CITY = "Kolkata";
 const char* COUNTRY = "IN";
 const char* host = "api.openweathermap.org";
