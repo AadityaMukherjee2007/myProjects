@@ -14,8 +14,8 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 // WiFi & API Settings
 const char* wifiSSIDs[] = {"TapeshDuttaRoy", "Tiyasa", "i=q/t#Current"};  
 const char* wifiPasswords[] = {"Tapesh@1977", "duttaroy123", "2022#ElectronFlow"};
-const int numWiFi = 2;  
-const char* API_KEY = "7e2725b04e241d0099a992635554b7c8";
+const int numWiFi = 3;  
+const char* API_KEY = "7d721bf1d16d0ceb3f87398c967842a4";
 const char* CITY = "Kolkata";
 const char* COUNTRY = "IN";
 const char* host = "api.openweathermap.org";
@@ -154,7 +154,7 @@ void parseWeatherJSON(String jsonString) {
         return;
     }
 
-    jsonString = jsonString.substring(jsonStart);
+    jsonString = jsonString.substring(jsonStart); 
 
     DeserializationError error = deserializeJson(doc, jsonString);
     if (error) {
@@ -168,15 +168,18 @@ void parseWeatherJSON(String jsonString) {
         return;
     }
 
-    weatherCondition = doc["weather"][0]["description"].as<String>();
-    temperature = doc["main"]["temp"];
+    // ✅ Ensure temperature is stored correctly
+    temperature = round(doc["main"]["temp"].as<float>());  // ✅ Round to whole number
     humidity = doc["main"]["humidity"];
+    weatherCondition = doc["weather"][0]["description"].as<String>();
 
+    // ✅ Print with 2 decimal places
     Serial.println("\n✅ Weather Data Updated:");
-    Serial.println("🌡 Temperature: " + String(temperature) + "°C");
-    Serial.println("💧 Humidity: " + String(humidity) + "%");
+    Serial.printf("🌡 Temperature: %.2f°C\n", temperature);
+    Serial.printf("💧 Humidity: %d%%\n", humidity);
     Serial.println("☁ Condition: " + weatherCondition);
 }
+
 
 // Fetch Time Directly from WiFi
 void fetchTime() {
@@ -229,7 +232,7 @@ void displayData() {
         display.print("Time: " + formattedTime);
     } else {
         display.setCursor(10, 0);
-        display.print("Temp: " + String(temperature) + (char)247 + "C");
+        display.print("Temp: " + String((int)temperature) + (char)247 + "C"); 
         display.setCursor(10, 10);
         display.print("Humidity: " + String(humidity) + "%");
         display.setCursor(10, 20);
