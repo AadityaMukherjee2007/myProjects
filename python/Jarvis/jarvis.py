@@ -1,3 +1,4 @@
+from time import sleep
 import speech_recognition, asyncio, io, requests
 import pyautogui as py
 from edge_tts import Communicate
@@ -19,7 +20,7 @@ apps_terminal = ("htop")
 
 apps_shortcut = ("terminal")
 
-apps_search = ("whatsapp", "files")
+apps_search = ("whatsapp", "files", "spotify")
 
 # tuple of recognised commands
 recognised_commands = (
@@ -38,7 +39,10 @@ recognised_commands = (
     "auto tile",
     "switch keyboard layout", 
     "show system process", 
-    "type text"
+    "type text", 
+    "lock screen", 
+    "lock session", 
+    "system shutdown"
 )
 
 recogniser = speech_recognition.Recognizer()
@@ -69,7 +73,12 @@ def open_using_shortcut(app_name):
 def open_using_search(app_name):
     py.press("win")
     py.write(app_name)
-    py.press("enter")
+
+    if app_name == "spotify":
+        sleep(1)
+        py.hotkey("ctrl", "2")
+    else:
+        py.press("enter")
      
 
 def open_using_terminal(app_name):
@@ -112,6 +121,20 @@ def main():
             
             if command == "jarvis":
                 reply("All systems active! How can i help you?")
+
+
+            if command == "system shutdown":
+                reply("Shutting down system.")
+                open_using_shortcut("terminal")
+                sleep(1)
+                py.write("sudo systemctl poweroff")
+                py.press("enter")
+                py.write("Pop#2025")
+                py.press("enter")
+
+            
+            if command in ("lock screen", "lock session"):
+                py.hotkey("win", "esc")
 
 
             if command == "auto tile":
