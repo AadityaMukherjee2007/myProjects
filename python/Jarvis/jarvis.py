@@ -1,5 +1,5 @@
 from time import sleep
-import speech_recognition, asyncio, io, requests
+import speech_recognition, asyncio, io, requests, os, re, sys
 import pyautogui as py
 from edge_tts import Communicate
 from pydub import AudioSegment
@@ -13,7 +13,8 @@ appmap = {
     "vscode": "code", 
     "code": "code", 
     "text editor": "gedit",
-    "text edit": "gedit"
+    "text edit": "gedit", 
+    "arduino": "arduino",
 }
 
 apps_terminal = ("htop")
@@ -36,6 +37,7 @@ recognised_commands = (
     "open", 
     "press", 
     "light", 
+    "fan",
     "auto tile",
     "switch keyboard layout", 
     "show system process", 
@@ -87,6 +89,14 @@ def open_using_terminal(app_name):
     py.press("enter")
 
 
+def getcapslock():
+    s = os.popen('xset -q').read()
+    if re.search('Caps Lock:\\s+on', s):
+        return True
+    else:
+        return False
+
+
 def open(app_name):
     if app_name in apps_shortcut:
         open_using_shortcut(app_name)
@@ -95,6 +105,9 @@ def open(app_name):
     elif app_name in apps_terminal:
         open_using_terminal(app_name)
     else:
+        if getcapslock():
+            py.press("capslock")
+
         py.hotkey("alt", "f2")
         py.write(appmap[app_name])
         py.press("enter")
@@ -143,8 +156,8 @@ def main():
 
             # to switch keyboard layout
             if command == "switch keyboard layout":
-                reply("Switching keyboard layout")
                 py.hotkey("win", "space")
+                reply("Keyboard layout switched")
 
             if command == "show system process":
                 reply("Opening system proccesses")
@@ -185,10 +198,31 @@ def main():
                 except ValueError:
                     continue
 
-                if state in ["on", "off", "toggle"]:
-                    requests.get("http://192.168.0.161/toggle")
+                if state == "on":
+                    requests.get("http://192.168.0.161/on")
+                elif state == "off":
+                    requests.get("http://192.168.0.161/off")
                 else:
                     continue
+
+
+            if command.startswith("fan"):
+                try:
+                    _, state = command.split(" ")
+                except ValueError:
+                    continue
+                
+                try:
+                    if state == "on":
+                        requests.get("http://192.168.0.189/on")
+                    elif state == "off":
+                        requests.get("http://192.168.0.189/off")
+                    else:
+                        continue
+                except requests.exceptions.ConnectionError:
+                    continue
+                
+
 
             if command.startswith("type text"):
                 txt = command[9:]
