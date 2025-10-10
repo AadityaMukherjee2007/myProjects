@@ -44,7 +44,8 @@ recognised_commands = (
     "type text", 
     "lock screen", 
     "lock session", 
-    "system shutdown"
+    "system shutdown", 
+    "volume",
 )
 
 recogniser = speech_recognition.Recognizer()
@@ -163,6 +164,27 @@ def main():
                 reply("Opening system proccesses")
                 open("htop")
 
+            if command.startswith("volume"):
+                try:
+                    _, state = command.split(" ")
+                except ValueError:
+                    continue 
+
+                if state == "up":
+                    os.system("amixer set Master 10%+")
+                    os.system("play -nq -t alsa synth 0.2 sine 500 vol 0.1")
+                elif state == "down":
+                    os.system("amixer set Master 10%-")
+                    os.system("play -nq -t alsa synth 0.2 sine 500 vol 0.1")
+                elif state == "mute":
+                    os.system("amixer set Master mute")
+                    os.system("play -nq -t alsa synth 0.2 sine 500 vol 0.1")
+                elif state == "unmute":
+                    os.system("amixer set Master unmute")
+                    os.system("play -nq -t alsa synth 0.2 sine 500 vol 0.1")
+                else:
+                    continue
+
             # to minimise the current window or app
             if command in ["minimise", "minimise window"]:
                 py.hotkey("win", "h")
@@ -198,11 +220,14 @@ def main():
                 except ValueError:
                     continue
 
-                if state == "on":
-                    requests.get("http://192.168.0.161/on")
-                elif state == "off":
-                    requests.get("http://192.168.0.161/off")
-                else:
+                try:
+                    if state == "on":
+                        requests.get("http://192.168.0.161/on")
+                    elif state == "off":
+                        requests.get("http://192.168.0.161/off")
+                    else:
+                        continue
+                except requests.exceptions.ConnectionError:
                     continue
 
 
