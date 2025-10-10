@@ -13,10 +13,7 @@ def magnitude(vector: list) -> float:
 
 
 # function to find out scalar product of two vectors
-def scalarProduct(vector_1: list, vector_2: list) -> Union[float, str]:
-    if len(vector_1) != len(vector_2):
-        return "Vectors need to be conformable for scalar product"
-
+def scalarProduct(vector_1: list, vector_2: list) -> float:
     val = 0
     for i in range(len(vector_1)):
         val += vector_1[i] * vector_2[i]
