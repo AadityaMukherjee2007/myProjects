@@ -30,5 +30,7 @@ with sd.RawInputStream(samplerate=16000, blocksize=8000, dtype='int16',
             print(f"📝 You said: {text}")
 
             # 🔘 Simple LED command logic
-            if text == "on" or text == "off" or text == "toggle":
-                requests.get("http://192.168.0.161/toggle")
+            if text == "on":
+                requests.get("http://192.168.0.161/on")
+            elif text == "off":
+                requests.get("http://192.168.0.161/off")
