@@ -1,0 +1,76 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+venv/
+.env
+*.sqlite3
+
+# =========================
+# Arduino / C++ / Embedded
+# =========================
+*.elf
+*.hex
+*.bin
+*.eep
+*.map
+*.dmp
+*.log
+*.o
+*.d
+*.dmp
+*.a
+*.s
+*.lst
+*.tmp
+
+# =========================
+# Node / JS / TS projects
+# =========================
+node_modules/
+npm-debug.log
+yarn-error.log
+dist/
+build/
+
+# =========================
+# Large files / models / data
+# =========================
+*.zip
+*.tar.gz
+*.7z
+*.rar
+*.model
+vosk-model*/
+*.h5
+*.pb
+*.onnx
+*.pt
+*.ckpt
+*.tflite
+*.npy
+*.dat
+*.csv
+
+# =========================
+# Misc / IDE
+# =========================
+.DS_Store
+*.swp
+.idea/
+.vscode/
+*.iml
+*.sublime-workspace
+*.sublime-project
+
+# =========================
+# Logs
+# =========================
+*.log
