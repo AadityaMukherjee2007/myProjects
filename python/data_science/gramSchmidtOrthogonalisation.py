@@ -100,14 +100,14 @@ def setInput() -> None:
 
 
 def main():
-    setInput()
-    print(gram_schmidt(vectors))
+    # setInput()
+    # print(gram_schmidt(vectors))
 
-    # test_vectors = [
-    #     [3, 0, 0],
-    #     [0, -2, 0],
-    #     [0, 0, 5]
-    # ]
+    test_vectors = [
+        [3, 0, 0],
+        [0, -2, 0],
+        [0, 0, 5]
+    ]
 
     # print(magnitude([3, 0, 0]), magnitude([0, -2, 0]))
     # print(scalarProduct([3, 0, 0], [0, -2, 0]))
@@ -118,7 +118,7 @@ def main():
     #     [0, 1, 1]
     # ]
 
-    # print(gram_schmidt(test_vectors)) 
+    print(gram_schmidt(test_vectors)) 
 
     # v1 = [1, 2, 3]
     # v2 = [3, 2, 1]
