@@ -2,8 +2,8 @@ import asyncio, time
 from datetime import datetime
 from telegram import Bot
 
-tk = ["7971025018:AAECz2X1XjV1lGbo-qeUPm6J4xgNWzLvTUc", "7971025018:AAECz2X1XjV1lGbo-qeUPm6J4xgNWzLvTUc"]
-c_id = ["7340995641", "6605348447"]
+tk = [""]
+c_id = [""]
 
 async def main():
     while True:
