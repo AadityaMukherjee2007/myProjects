@@ -71,4 +71,4 @@ If you build your own version, tag me — I’d love to see your take on it.
 ### 📬 Author
 **Aaditya Mukherjee**  
 Tech enthusiast | IoT & Automation | Data Science | Solopreneur  
-[LinkedIn](your-linkedin-url) • [Portfolio](your-portfolio-url)
+[LinkedIn](https://www.linkedin.com/in/aaditya-mukherjee-4490182b7/) • [Portfolio](https://aadityamukherjee2007.github.io/)
