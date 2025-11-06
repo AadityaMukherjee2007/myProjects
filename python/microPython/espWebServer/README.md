@@ -41,11 +41,6 @@ Currently, I’ve connected it to my **desk light**, but the setup can handle up
 
 ---
 
-### 📸 Demo
-(Add screenshots or short GIF of the UI here)
-
----
-
 ### 🚀 Future Improvements
 - Add MQTT support for cloud-based control  
 - Build a mobile app interface  
