@@ -4,8 +4,8 @@
 #include <addons/RTDBHelper.h>
 #include <DHT.h>
 
-#define API_KEY "AIzaSyC5LZu0mE7jnKer2IQG_muKF8VconlcQOk"
-#define DATABASE_URL "https://data-1-36f9b-default-rtdb.asia-southeast1.firebasedatabase.app/"
+#define API_KEY "<API_KEY>"
+#define DATABASE_URL "<DATABASE_URL>"
 
 DHT dht(14, DHT11);
 
@@ -20,7 +20,7 @@ int c = 0;
 
 void wifi()
 {
-    WiFi.begin("i=q/t#Current", "2022#ElectronFlow");
+    WiFi.begin("<WIFI_SSID>", "<PASSWORD>");
     Serial.print("Connecting");
 
     while (WiFi.status() != WL_CONNECTED)
