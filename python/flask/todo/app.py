@@ -62,12 +62,6 @@ def update(id):
     else:
         return render_template('update.html', task=task)
 
-@app.route('/api/getnum')
-def getnum():
-    return jsonify({
-        "num": random.randint(0, 9)
-    })
-
 
 if __name__ == "__main__":
     app.run(debug=True)
