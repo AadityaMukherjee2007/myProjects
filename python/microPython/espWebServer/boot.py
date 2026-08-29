@@ -22,8 +22,8 @@ esp.osdebug(None)
 import gc
 gc.collect()
 
-ssid = 'i=q/t#Current'
-password = '2022#ElectronFlow'
+ssid = '<YOUR_WIFI_SSID>'
+password = '<YOUR_WIFI_PASSWORD>'
 
 station = network.WLAN(network.STA_IF)
 
